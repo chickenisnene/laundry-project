@@ -1,0 +1,184 @@
+        /* 전체 페이지  설정 */
+        body { font-family: sans-serif; margin: 0; background: #eee; display: flex; justify-content: center; }
+        /* 모바일 */
+        .mobile-container { width: 100%; max-width: 480px; height: 100vh; background: #0B0742; position: relative; overflow: hidden; box-shadow: 0 0 10px rgba(0,0,0,0.2); }
+        
+        /* 모든 페이지 공통 레이아웃 */
+        .page { display: none; padding: 20px; height: calc(100% - 130px); overflow-y: auto; padding-top: 90px; z-index: -whitewhite}
+        .active-page { display: block; } 
+
+        /* 로그인 페이지 전체 */
+        #login-page { display: flex; flex-direction: column; justify-content: center; height: 100%; padding: 30px; box-sizing: border-box; background: white; position: absolute; width: 100%; z-index: 200; }
+        /* 로그인 입력 */
+        .login-input { width: 100%; padding: 12px; margin-bottom: 12px; border: 1px solid #d8d8d8; border-radius: 8px; box-sizing: border-box; background-color: #d8d8d8; text-align: black;}
+        /* 성별 선택 버튼을 감싸는 거 */
+        .gender-select { display: flex; gap: 10px; margin-bottom: 20px; }
+        /* 성별 버튼 공통 */
+        .gender-btn { flex: 1; padding: 12px; border: 1px solid #d8d8d8; border-radius: 8px; background: #d8d8d8; cursor: pointer; text-align: center; transition: 0.3s; }
+        /* 선택된 성별 버튼 강조 */
+        .gender-btn.selected { background: #bbcdfc; color: black; border-color: black; }
+        /* 로그인 버튼 */
+        .login-submit { background: white; color: black; border: 1px solid #d8d8d8; padding: 16px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 16px; }
+
+        /* 입력 필드 색상 */
+        input::placeholder { color: black; } /* 로그인 placeholder 색상 */
+
+
+        /* 탭 네비게이션(상단/하단) 공통 (버튼들 배경 포함임) */
+        .tab-nav { display: none; position: absolute; top: 0; width: 100%; background: transparent; z-index: 100; padding: 0 0; box-sizing: border-box; background-color: #0B0742;}
+        .tab-nav ul { display: flex; flex-direction: row-reverse; list-style: none; padding: 0; margin: 0;}
+        /* 각 탭 항목 */    
+        .tab-nav li { 
+            flex: 1; text-align: center; padding: 15px 0; font-size: 13px; color: grey; cursor: pointer; 
+            background: #0B0742; border: none; outline: none;
+            position: relative; transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        /* 마우스 gh버 시 배경 변경 */
+        .tab-nav li:hover { background: #f0f0f0; }
+        /* 활성화된 탭 스타일 */
+        .tab-nav li.active { color: white; background: #0B0742; font-weight: bold; transform: scale(1.05); }
+
+
+
+
+        /* 건물 전환 스위치 컨테이너 */
+        .dorm-switcher { display: flex; background: #f0f0f0; border-radius: 20px; padding: 4px; margin-bottom: 15px; position: relative; }
+        /* 각 스위치 버튼 */
+        .dorm-btn { 
+            flex: 1; padding: 8px; border-radius: 16px; border: none; font-size: 13px; cursor: pointer; 
+            background: transparent; color: #666; transition: 0.3s; z-index: 1; position: relative; 
+        }
+        /* 활성화된 버튼 강조 */
+        .dorm-btn.active { color: black; font-weight: bold; }
+        /* 스위치 배경 이동 애니메이션 */
+        .dorm-switch-bg {
+            position: absolute; top: 4px; left: 4px; width: calc(50% - 4px); height: calc(100% - 8px);
+            background: white; border-radius: 16px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 0;
+        }
+
+                /* 기기 전환 스위치 컨테이너 */
+        .machine-switcher { display: flex; background: #f0f0f0; border-radius: 20px; padding: 4px; margin-bottom: 15px; position: relative; }
+        /* 각 스위치 버튼 */
+        .machine-type-btn { 
+            flex: 1; padding: 8px; border-radius: 16px; border: none; font-size: 13px; cursor: pointer; 
+            background: transparent; color: #666; transition: 0.3s; z-index: 1; position: relative; 
+        }
+        /* 활성화된 버튼 강조 */
+        .machine-type-btn.active { color: black; font-weight: bold; }
+        /* 스위치 배경 이동 애니메이션 */
+        .machine-switch-bg {
+            position: absolute; top: 4px; left: 4px; width: calc(50% - 4px); height: calc(100% - 8px);
+            background: white; border-radius: 16px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 0;
+        }
+
+
+
+
+
+        /* 상태 목록 항목 스타일 */
+        .bar-item { margin-bottom: 12px; cursor: pointer; padding: 12px; background: #fafafa; border-radius: 10px; border: 1px solid transparent; }
+        .bar-item:active { background: #f0f0f0; }
+        .bar-outer { background: #eee; height: 8px; border-radius: 4px; overflow: hidden; margin-top: 8px; }
+        .bar-inner { height: 100%; transition: width 0.5s; }
+
+
+
+
+        /* 타임라인 상단 헤더 부분 */
+        .timeline-header {
+            display: flex; justify-content: flex-end; gap: 40px; margin-bottom: 10px; 
+            padding-right: 0px; font-size: 11px; color: white; font-weight: bold;
+        }
+        .timeline-marker { width: 155px; text-align: right; font-size: 15px;}
+
+        /* 타임라인 각 아이템 래퍼 */
+        .timeline-item {
+            display: flex; align-items: center; margin-bottom: 15px;
+        }
+        /* 기계 번호 텍스트 */
+        .machine-number { 
+            min-width: 25px; text-align: center; font-weight: bold; font-size: 14px; color: white;
+        }
+        /* 타임라인 막대 전체 영역 */
+        .timeline-bar {
+            flex: 1; display: flex; height: 24px; gap: 2px; background: transparent;
+        }
+        /* 막대의 세그먼트 기본 */
+        .timeline-segment {
+            flex: 1; border-radius: 4px; min-width: 15px;
+        }
+        .timeline-segment.idle { background: #86F0A2; }
+        .timeline-segment.active { background: #FF4757; }
+
+        /* 마이페이지에서 사용하는 섹션 제목 */
+        .section-title { font-size: 16px; font-weight: bold; margin: 25px 0 12px 0; color: white; }
+        /* 사용량 카드 박스 스타일 */
+        .usage-card { background: white; border: 1px solid #f2f2f2; border-radius: 12px; padding: 12px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+        
+        /* 상태 통계를 그리드로 표시 */
+        .status-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .status-box { background: none; border: 3px solid white; border-radius: 5px; padding: 12px; position: relative; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .status-box-title { font-size: 12px; color: white; font-weight: bold; margin-bottom: 5px; }
+        .status-count { font-size: 18px; font-weight: bold; color: #99E5EC; }
+        .status-count.zero { color: #FF4757; }
+
+        /* 페이지 우측 상단 토글 스위치 위치 */
+        .switch { position: absolute; top: 12px; right: 10px; width: 34px; height: 18px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 34px; }
+        .slider:before { position: absolute; content: ""; height: 14px; width: 14px; left: 2px; bottom: 2px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: #86F0A2; }
+        input:checked + .slider:before { transform: translateX(16px); }
+
+        /* 지도 이미지를 감싸는 컨테이너 */
+        .map-container { width: 100%; border-radius: 10px; overflow: hidden; margin-top: 10px; border: 1px solid #eee; background: #f9f9f9; }
+        .map-image { width: 100%; height: auto; display: block; min-height: 200px; }
+
+        /* 전체 화면을 덮는 모달 오버레이 */
+        #modal-overlay { display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; }
+        .modal-content { background: white; padding: 25px; border-radius: 15px; width: 80%; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .modal-btn { margin-top: 20px; padding: 14px; background: #99E5EC; color: black; border: solid #0B0742; border-radius: 8px; width: 100%; font-weight: bold; cursor: pointer; }
+
+
+        .left-line {
+            border-left: dotted 3px white;
+            margin-right: 100px;
+            margin: 0 auto;
+            position: absolute;
+            z-index: 0;
+            margin-left: 23px;
+            pointer-events: none;
+            top: 0;
+            bottom: 0;
+            left : 0;
+        }
+
+        
+        .middle-line {
+            border-left: dotted 3px white;
+            /* height: 300px; */
+            margin: 0 auto;
+            position: absolute;
+            z-index: 0;
+            pointer-events: none;
+            align-items: center;
+            top: 0;
+            bottom: 0;
+            left: 52.5%;
+        }
+
+        .right-line {
+            border-left: dotted 3px white;
+            /* height: 300px; */
+            margin: 0 auto;
+            position: absolute;
+            z-index: 0;
+            pointer-events: none;
+            align-items: center;
+            top: 0;
+            bottom: 0;
+            right: 0;
+        }
